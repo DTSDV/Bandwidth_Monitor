@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Bandwidth Monitor</h1>
+        <p class="lead">This application is built on the Python Flask framework.</p>
+        {% if running %}
+            <a href="/" class="btn btn-danger btn-lg">Stop Monitoring</a>
+        {% else %}
+            <a href="/monitoring/" class="btn btn-success btn-lg">Begin Monitoring</a>
+        {% endif %}
+    </div>
+
+    <div class="jumbotron text-left">
+        <p>Bytes sent: {{ bytes_sent}}</p>
+        <p>Bytes received: {{ bytes_recv }}</p>
+        <!--<meta http-equiv="refresh" content="2" >-->
+        <p>Packets Sent: {{ packets_sent }}</p>
+        <p>Packets Received: {{ packets_recv }}</p>
+    </div>
+{% endblock %}
